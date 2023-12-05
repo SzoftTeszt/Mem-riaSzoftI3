@@ -25,3 +25,6 @@
     clear: both;
     display: table;
   }
+            .kitalalt{
+    filter:grayscale(1);
+  }
