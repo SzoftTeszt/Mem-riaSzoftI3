@@ -2,6 +2,30 @@ var palya=document.getElementById('palya')
 var maxSor=5
 var maxOszlop=6
 
+document.querySelector('form').addEventListener("submit",
+(e)=>{
+            e.preventDefault();
+            
+            console.log(e.target.elements)
+            maxOszlop=Number(e.target.elements.oszlopSzam.value)
+            maxSor=Number(e.target.elements.sorSzam.value)
+            console.log(maxSor*maxOszlop)
+            if ( ((maxSor*maxOszlop)%2==0) && (maxSor*maxOszlop)<=44) 
+                {    
+                    document.querySelector('form').style.display='none'
+                    init()
+                }
+
+
+            
+             console.log('submit')
+        }
+
+)
+
+
+
+
 function elemFactory(mit,osztaly,adatok,fuggveny)
 {
     vissza=document.createElement(mit)
@@ -56,8 +80,8 @@ function kepetMegjelenit(){
                 }
             )
             if ($('kitalalt').length==(maxSor*maxOszlop))
-            {
-                $('message').innerHTML='<p>Gratulálok te egy győztes vagy! (Új játék - F5)</p>'
+            {   document.querySelector('form').style.display='block'
+                $('message').innerHTML='<h2 class="text-center">Gratulálok te egy győztes vagy!</h2>'
             }
         }
     }         
@@ -101,7 +125,7 @@ for (let i = 1; i <= maxOszlop*maxSor/2; i++) {
 
 
 
-init()
+// init()
 
 
 
