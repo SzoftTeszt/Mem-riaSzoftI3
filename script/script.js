@@ -1,5 +1,6 @@
 var palya=document.getElementById('palya')
-
+var maxSor=5
+var maxOszlop=7
 
 function elemFactory(mit,osztaly,adatok,fuggveny)
 {
@@ -41,18 +42,23 @@ function kepetMegjelenit(){
     
 }
 
+function init(){
+palya.innerHTML=""    
+palya.style.width=(maxOszlop*10)+'vh'
+for (let i = 0; i < maxSor; i++) {
+    let sor= elemFactory('div','sor')
+   
+    for (let j = 0; j < maxOszlop; j++) {
+        sor.appendChild(elemFactory('div','cella','',kepetMegjelenit))
+    }
+    palya.appendChild(sor)
+    
+}
+}
 
 
 
-
-
-palya.appendChild(elemFactory('div','cella','./img/1.png',kepetMegjelenit))
-palya.appendChild(elemFactory('div','cella','./img/2.png',kepetMegjelenit))
-palya.appendChild(elemFactory('div','cella','./img/3.png',kepetMegjelenit))
-palya.appendChild(elemFactory('div','cella','./img/4.png',kepetMegjelenit))
-palya.appendChild(elemFactory('div','cella','./img/5.png',kepetMegjelenit))
-palya.appendChild(elemFactory('div','cella','./img/6.png',kepetMegjelenit))
-
+init()
 
 
 
